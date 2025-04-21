@@ -22,7 +22,8 @@ class DefaultRemoteButton(context: Context, attrs: AttributeSet?): androidx.appc
         ZOOM_IN,
         ZOOM_OUT,
         FOCUS_FAR,
-        FOCUS_NEAR
+        FOCUS_NEAR,
+        FOCUS_FAR_SHUTTER
     }
 
     val button: Button = attrs?.let {
@@ -46,11 +47,13 @@ class DefaultRemoteButton(context: Context, attrs: AttributeSet?): androidx.appc
                 Button.ZOOM_OUT -> JogCode.ZOOM_OUT in cameraState.pressedJogs
                 Button.FOCUS_FAR -> JogCode.FOCUS_FAR in cameraState.pressedJogs
                 Button.FOCUS_NEAR -> JogCode.FOCUS_NEAR in cameraState.pressedJogs
+                Button.FOCUS_FAR_SHUTTER -> JogCode.FOCUS_FAR in cameraState.pressedJogs
+
                 else -> false
             }
             val colorAttr = TypedValue()
             val color = if (pressed) {
-                context.theme.resolveAttribute(com.google.android.material.R.attr.colorSecondary, colorAttr,true)
+                context.theme.resolveAttribute(R.attr.colorSecondary, colorAttr,true)
                 context.getColor(colorAttr.resourceId)
             } else {
                 context.theme.resolveAttribute(R.attr.colorCustomButton, colorAttr,true)

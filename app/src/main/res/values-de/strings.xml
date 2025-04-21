@@ -121,6 +121,8 @@
     <string name="action_name_zoom_out">Rauszoomen</string>
     <string name="action_name_focus_far">Fokus fern</string>
     <string name="action_name_focus_near">Fokus nah</string>
+    <string name="action_name_focus_far_shutter">Fokus fern auslösen</string>
+
 
     <string name="help">Hilfe</string>
     <string name="help_settings_connection_troubleshooting_title">Problembehebung der Verbindung</string>

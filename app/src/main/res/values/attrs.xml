@@ -5,6 +5,8 @@
     <attr name="colorCustomButton" format="reference" />
     <attr name="colorCustomButtonBG" format="reference" />
     <attr name="colorZoomFocusBG" format="reference" />
+    <attr name="colorSecondary" format="reference" />
+
 
     <declare-styleable name="DefaultRemoteButton">
         <attr name="button" format="enum">
@@ -19,6 +21,7 @@
             <enum name="ZOOM_OUT" value="7" />
             <enum name="FOCUS_FAR" value="8" />
             <enum name="FOCUS_NEAR" value="9" />
+            <enum name="FOCUS_FAR_SHUTTER" value="10" />
         </attr>
     </declare-styleable>
 </resources>

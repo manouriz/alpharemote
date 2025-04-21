@@ -150,5 +150,15 @@ enum class CameraActionPreset(val template: CameraActionTemplate) {
         release = listOf(CAJog(false, -1, JogCode.FOCUS_NEAR)),
         userOptions = setOf(CameraActionTemplateOption.VARIABLE_DURATION, CameraActionTemplateOption.ADJUST_SPEED),
         referenceJog = JogCode.FOCUS_NEAR
-    ))
+    )),
+    FOCUS_FAR_SHUTTER(CameraActionTemplate(R.string.action_name_focus_far_shutter, R.drawable.ca_focus_far_shutter,
+        press = listOf(CAJog(true, -1, JogCode.FOCUS_FAR)),
+        release = listOf(
+            CAJog(false, -1, JogCode.FOCUS_FAR),
+            CAButton(true, ButtonCode.SHUTTER_FULL),
+            CAButton(false, ButtonCode.SHUTTER_FULL)
+            ),
+        userOptions = setOf(CameraActionTemplateOption.VARIABLE_DURATION, CameraActionTemplateOption.ADJUST_SPEED),
+        referenceJog = JogCode.FOCUS_FAR
+    )),
 }

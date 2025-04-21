@@ -18,6 +18,7 @@ import org.staacks.alpharemote.SettingsStore
 import org.staacks.alpharemote.camera.ButtonCode
 import org.staacks.alpharemote.camera.CAButton
 import org.staacks.alpharemote.camera.CACountdown
+import org.staacks.alpharemote.camera.JogCode
 import org.staacks.alpharemote.camera.CAJog
 import org.staacks.alpharemote.camera.CAWaitFor
 import org.staacks.alpharemote.camera.CameraAction
@@ -39,6 +40,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.staacks.alpharemote.camera.CameraActionPreset
+//import org.staacks.alpharemote.camera.JogCode
 import org.staacks.alpharemote.ui.settings.CompanionDeviceHelper
 import java.util.LinkedList
 import java.util.Timer
@@ -239,11 +241,11 @@ class AlphaRemoteService : CompanionDeviceService() {
                 startCameraAction(
                     List(count) {
                         listOf(
-                            CAButton(pressed = true, ButtonCode.SHUTTER_HALF),
+                            CAButton(true, ButtonCode.SHUTTER_HALF),
                             CACountdown(getString(R.string.camera_advanced_interval_timer_label), duration),
-                            CAButton(pressed = true, ButtonCode.SHUTTER_FULL),
-                            CAButton(pressed = false, ButtonCode.SHUTTER_FULL),
-                            CAButton(pressed = false, ButtonCode.SHUTTER_HALF)
+                            CAButton(true, ButtonCode.SHUTTER_FULL),
+                            CAButton(false, ButtonCode.SHUTTER_FULL),
+                            CAButton(false, ButtonCode.SHUTTER_HALF),
                         )
                     }.flatten()
                 )

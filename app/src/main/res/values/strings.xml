@@ -122,6 +122,8 @@
     <string name="action_name_zoom_out">Zoom Out</string>
     <string name="action_name_focus_far">Focus Far</string>
     <string name="action_name_focus_near">Focus Near</string>
+    <string name="action_name_focus_far_shutter">Focus Far Shutter</string>
+
 
     <string name="help">Help</string>
     <string name="help_settings_connection_troubleshooting_title">Connection Troubleshooting</string>

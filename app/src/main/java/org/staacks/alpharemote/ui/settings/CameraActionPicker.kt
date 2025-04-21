@@ -20,6 +20,7 @@ import org.staacks.alpharemote.camera.CameraActionTemplateOption
 import org.staacks.alpharemote.databinding.CameraActionPickerBinding
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
 interface CameraActionPickerListener {
@@ -271,7 +272,7 @@ class CameraActionPicker : DialogFragment() {
                 binding.capToggle.isChecked = it.toggle
                 it.step?.let { step ->
                     binding.capSpeed.progress = (step * 100f).roundToInt()
-                }
+                    binding.capSpeedVal.text = binding.capSpeed.progress.absoluteValue.toString()                }
             }
         }
 

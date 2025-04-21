@@ -96,6 +96,8 @@ class CameraFragment : Fragment() {
                                 sendCameraActionToService(CameraAction(false, null, null, null, CameraActionPreset.ZOOM_OUT), action.event)
                             DefaultRemoteButton.Button.FOCUS_FAR ->
                                 sendCameraActionToService(CameraAction(false, null, null, null, CameraActionPreset.FOCUS_FAR), action.event)
+                            DefaultRemoteButton.Button.FOCUS_FAR_SHUTTER ->
+                                sendCameraActionToService(CameraAction(false, null, null, null, CameraActionPreset.FOCUS_FAR_SHUTTER), action.event)
                             DefaultRemoteButton.Button.FOCUS_NEAR ->
                                 sendCameraActionToService(CameraAction(false, null, null, null, CameraActionPreset.FOCUS_NEAR), action.event)
                         }
@@ -243,7 +245,7 @@ class CameraFragment : Fragment() {
                     val colorAttr = TypedValue()
                     context.theme.resolveAttribute(R.attr.colorCustomButton, colorAttr, true)
                     val baseColor = context.getColor(colorAttr.resourceId)
-                    context.theme.resolveAttribute(com.google.android.material.R.attr.colorSecondary, colorAttr, true)
+                    context.theme.resolveAttribute(R.attr.colorSecondary, colorAttr, true)
                     val pressedColor = context.getColor(colorAttr.resourceId)
                     val disabledColor = context.getColor(R.color.gray50)
 
@@ -300,7 +302,10 @@ class CameraFragment : Fragment() {
                 _binding?.advancedControls?.intervalCount?.text?.toString()?.toInt()?.let { count ->
                     val intent = Intent(context, AlphaRemoteService::class.java).apply {
                         action = AlphaRemoteService.INTERVAL_INTENT_ACTION
-                        putExtra(AlphaRemoteService.INTERVAL_INTENT_DURATION_EXTRA, duration)
+                        putExtra(
+                            AlphaRemoteService.INTERVAL_INTENT_DURATION_EXTRA,
+                            duration
+                        )
                         putExtra(AlphaRemoteService.INTERVAL_INTENT_COUNT_EXTRA, count)
                     }
                     context?.startService(intent)
